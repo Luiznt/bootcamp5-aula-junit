@@ -17,11 +17,10 @@ public class Financing {
 
 	public Financing(Double totalAmount, Double income, Integer months) {
 		
-		if (validProperties(totalAmount, income, months)) {
-			this.totalAmount  = totalAmount;
-			this.income= income;
-			this.months = months;
-		}
+		validProperties(totalAmount, income, months);
+		this.totalAmount  = totalAmount;
+		this.income= income;
+		this.months = months;
 	}
 
 	public Double getTotalAmount() {
@@ -57,11 +56,11 @@ public class Financing {
 	}
 
 	public Double quota() {
-		//validProperties(totalAmount , income, months);
-		return totalAmount * (1 - ENTRY_FEE_PERCENTAGE) / months;
+
+		return (totalAmount - entry()) / months;
 	}
 	
-	private Boolean validProperties(Double totalAmount, Double income, Integer months) {
+	private void validProperties(Double totalAmount, Double income, Integer months) {
 		
 		if (totalAmount <= 0.0) {
 			throw new IllegalArgumentException("totalAmount must be greater than zero");
@@ -78,8 +77,7 @@ public class Financing {
 		if (quota > income/2) {
 			throw new IllegalArgumentException("quota can not be greatter than half income");
 		}
-		
-		return true;
+			
 	}
 
 	
