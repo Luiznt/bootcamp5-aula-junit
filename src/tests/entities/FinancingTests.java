@@ -24,8 +24,7 @@ public class FinancingTests {
 		Assertions.assertEquals(months, fin.getMonths());
 
 	}
-	
-	
+		
 	@Test
 	public void FinancialShouldThrowExceptionWhenQuotaGreaterThenHalfIncome() {
 				
@@ -72,6 +71,7 @@ public class FinancingTests {
 
 	}
 	
+	@Test
 	public void setterShouldLoadPropertiesWhenQuotaIsLessOrEqualTheHalfIncome() {		
 		
 		Double totalAmount = 10000.0;
@@ -91,8 +91,6 @@ public class FinancingTests {
 		Assertions.assertEquals(months+1, fin.getMonths());
 		
 	}
-	
-	
 	
 
 	@Test
